@@ -12,10 +12,10 @@ class Test1{
 //출력: 	아이디가 없으면 아이디 없음,
 //		아이디가 있는데 비밀번호가 틀렸으면 비밀번호 틀렸음
 //		둘 다 맞으면 로그인 성공!
-public class LogIn {
+public class Login {
 	Scanner scan = new Scanner(System.in);
 	int id_index = 0;
-	
+	int count = 1;
 	//임시로 객체 만들기
 	Test1[] arrTest = new Test1[10];
 	//바꿔야 할 것 Test1
@@ -30,22 +30,36 @@ public class LogIn {
 		for(int i=0; i<arr.length; i++) {
 			arrPW[i] = arr[i].PW;
 		}
-		System.out.print("아이디: ");
-		String ID = scan.nextLine();//ID 입력받음
-		System.out.print("비밀번호: ");
-		String PW = scan.nextLine();//PW 입력받음
-		//아이디가 없다면
-		if(!checkID(arrID, ID)) System.out.println("입력된 아이디가 없습니다.\n 다시 입력하세요.");
-		else {//아이디가 있다면
+		while(count<=3) {
+			System.out.print("아이디: ");
+			String ID = scan.nextLine();//ID 입력받음
+			
+			//아이디가 없다면
+			if(!checkID(arrID, ID)) {
+				System.out.println("입력된 아이디가 없습니다.\n다시 입력하세요.");
+				continue;
+			}
+			System.out.print("비밀번호: ");
+			String PW = scan.nextLine();//PW 입력받음
+			
+			//아이디가 있다면
 			if(checkPW(arrPW,PW)) {//비밀번호가 맞았다면
 				System.out.println("로그인 성공!");
 				return;//메소드 종료
 			}
 			//비밀번호가 틀렸다면
-			else System.out.println("비밀번호가 틀렸습니다. 다시 입력하세요.");
+			else{
+				if(count == 3) {
+					System.out.println("비밀번호가 틀렸습니다.");
+					System.out.println("입력횟수를 초과하였습니다. 꺼.");
+					break;
+				}
+				System.out.println("비밀번호가 틀렸습니다. 다시 입력하세요.");
+				System.out.println("틀린 횟수: "+count);
+				count++;
+			}
 		}
 	}
-	
 	
 	//아이디 목록에서 해당 아이디가 있는지 찾는 메소드
 	//찾으면 true, 없으면 false 반환
