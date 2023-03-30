@@ -1,5 +1,9 @@
 package Edit;
-
+//피드백 드리겠습니다.
+//1. 클래스 이름이 앞글자가 대문자가 아닙니다.
+//2. 실제로 사용해야 할 클래스는 personalInfo인데 파일 이름과 다릅니다.
+//3. Input메소드로 매개변수 값을 받았을 때 set메소드로 매개변수값을 필드값에 저장하는 기능을 추가하면 좋을 것 같습니다.
+//4. 51번째 줄 처럼 중괄호 위치가 애매한 상황은 헷갈릴 수 있으므로 들여쓰기, 내어쓰기를 신경쓰는 습관을 들이면 좋을 것 같습니다.
 import java.util.Scanner;
 
 class personalInfo{
@@ -63,6 +67,7 @@ public class choices {
 		myInfo.setSmoking(mySmoking);
 
 		myInfo.Input(myInfo.getHobby(),myInfo.getHomeNumber(),myInfo.getSmoking());
+		sc.close();
 	}
 }
 

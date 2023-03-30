@@ -1,5 +1,7 @@
-package MM;
-
+package Edit;
+//깰꼼
+//메소드 위에 주석 달아주는 것 좋았습니다.
+//checkAddress 조건이 너무 까다롭습니다. 
 import java.util.regex.Pattern;
 
 public class InputCheck {
@@ -90,13 +92,12 @@ public class InputCheck {
 	
 	//모든 메소드들이 정상적으로 true를 리턴하면 Output에 폰번호랑 생년월일 이메일을 넘겨줌
 	public void allInput() {
-			if (counter==6) {
-				Info info = new Info(getEmail(),getPhoneNum(),getYear());
-				
-			}
-			
+		if (counter==6) {
+			Info info = new Info(getYear(),getPhoneNum(),getEmail());
 			
 		}
+	}
+	
 	public String getName() {
 		return name;
 	}
