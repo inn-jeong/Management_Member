@@ -1,6 +1,6 @@
 package Edit;
 
-//회원 객체, 
+//회원 객체, 개인정보 필드를 가지고 있고, setInput 메소드를 오버로딩하여 객체별로 값 저장 가능
 public class Member {
 	private String name;
 	private String Address;
