@@ -6,7 +6,7 @@ class Test1{
 	String ID = "";
 	String PW = "";
 }
-	int a = 0;
+
 //로그인 클래스
 //입력: 	아이디와 비밀번호를 입력받는다.
 //출력: 	아이디가 없으면 아이디 없음,
@@ -14,23 +14,23 @@ class Test1{
 //		둘 다 맞으면 로그인 성공!
 public class Login {
 	Scanner scan = new Scanner(System.in);
-	int id_index = 0;
-	int count = 1;
-	//임시로 객체 만들기
-	Test1[] arrTest = new Test1[10];
+	private int id_index = 0;	//입력된 아이디의 배열 index값
+	private int[] wrongcnt;		//아이디별 틀린 횟수를 카운트
 	//바꿔야 할 것 Test1
 	public void login(Test1[] arr) {
 		String[] arrID = new String[arr.length];//ID들 모아놓은 배열
 		String[] arrPW = new String[arr.length];//PW 모아놓은 배열
+		wrongcnt = new int[arr.length];
 		//객체배열에서 객체의 ID값을 String 배열로 모음
 		for(int i=0; i<arr.length; i++) {
-			arrID[i] = arr[i].ID;
+			arrID[i] = arr[i].ID.toString();
 		}
 		//객체배열에서 객체의 PW값을 String 배열로 모음
 		for(int i=0; i<arr.length; i++) {
-			arrPW[i] = arr[i].PW;
+			arrPW[i] = arr[i].PW.toString();
 		}
-		while(count<=3) {
+		System.out.println("로그인을 시도합니다.");
+		while(true) {
 			System.out.print("아이디: ");
 			String ID = scan.nextLine();//ID 입력받음
 			
@@ -49,14 +49,14 @@ public class Login {
 			}
 			//비밀번호가 틀렸다면
 			else{
-				if(count == 3) {
+				if(wrongcnt[id_index] == 2) {//0,1,2 총 3회
 					System.out.println("비밀번호가 틀렸습니다.");
 					System.out.println("입력횟수를 초과하였습니다. 꺼.");
 					break;
 				}
 				System.out.println("비밀번호가 틀렸습니다. 다시 입력하세요.");
-				System.out.println("틀린 횟수: "+count);
-				count++;
+				System.out.println("틀린 횟수: "+(wrongcnt[id_index]+1));
+				wrongcnt[id_index]++;
 			}
 		}
 	}
@@ -73,7 +73,6 @@ public class Login {
 				break;
 			}
 		}
-		
 		return flagID_OK;
 	}
 	
@@ -85,8 +84,6 @@ public class Login {
 		if(arrPW[id_index].equals(PW)) {
 			flagPW_OK = true;
 		}
-		
 		return flagPW_OK; 
 	}
-	
 }
