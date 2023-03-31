@@ -15,7 +15,7 @@ public class TestMain {
 		num= scan.nextInt();
 		Member[] arrMember = new Member[num]; //num크기의 객체배열 생성
 		boolean checker = false;
-		int countet = num;
+		int counter = num;
 		num=0;
 		do {
 //////////////////////////////////이름 입력//////////////////////////////
@@ -71,7 +71,7 @@ public class TestMain {
 ///////////////////////////////주소 입력//////////////////////////////
 			////////////////////확인 필요////////////////////////////
 			checker=false;
-			System.out.println("으");
+			
 			System.out.print("주소를 입력해주세요: ");
 			do {
 				 
@@ -137,7 +137,7 @@ public class TestMain {
 			 scan.nextLine();
 			 
 			 //아이디,비번을 생성하기 위한 객체 생성
-			 Info info = new Info(input.getYear(),input.getPhoneNum(),input.getEmail()); 
+			 Info info = input.allInput();
 			 Member member = new Member();	//회원 객체 생성
 			 
 			 member.setInput(input);		//회원 객체에 개인정보 저장
@@ -151,11 +151,11 @@ public class TestMain {
 			 //객체 배열에 생성된 객체 추가
 			 arrMember[num] = member;
 			 num++;
-			 if(num != countet) {
+			 if(num != counter) {
 				 System.out.println("\n"+(num+1)+"번째 회원정보 입력");
 				 
 			 }
-		} while (num!=countet);
+		} while (num!=counter);
 		System.out.println();
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////////로그인//////////////////////////////////
