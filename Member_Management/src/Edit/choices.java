@@ -30,6 +30,9 @@ class personalInfo{
 		return smoking;
 	}
 	public void Input(String hobby, String homeNumber, String smoking) {
+		setHobby(hobby);
+		setHomeNumber(homeNumber);
+		setSmoking(smoking);
 		if (hobby.isEmpty()) {
 		}else {
 			System.out.println("취미: "+hobby);
@@ -48,7 +51,7 @@ class personalInfo{
 		}
 	}
 
-	}
+}
 
 public class choices {
 	public static void main(String[] args) {
@@ -70,4 +73,3 @@ public class choices {
 		sc.close();
 	}
 }
-
