@@ -91,11 +91,11 @@ public class InputCheck {
 	}
 	
 	//모든 메소드들이 정상적으로 true를 리턴하면 Output에 폰번호랑 생년월일 이메일을 넘겨줌
-	public void allInput() {
-		if (counter==6) {
-			Info info = new Info(getYear(),getPhoneNum(),getEmail());
-			
-		}
+	public Info allInput() {
+		Info info = new Info(getYear(),getPhoneNum(),getEmail());
+
+		return info;
+
 	}
 	
 	public String getName() {
