@@ -32,7 +32,9 @@ public class TestMain {
 			} while (!checker);
 			
 ///////////////////////////////주민번호 입력//////////////////////////////
-			System.out.print("주민등록번호 첫번째 자리부터\n7번째 자리까지 입력 해주세요\n입력: ");
+			System.out.print("주민등록번호 첫번째 자리부터"
+					+ "\n7번째 자리까지 입력 해주세요"
+					+ "\n입력: ");
 			checker = false;
 				
 			 do {	 
@@ -45,7 +47,9 @@ public class TestMain {
 			 
 ///////////////////////////////전화번호 입력//////////////////////////////
 			 checker = false;
-			 	System.out.print("전화 번호를 입력해주세요\n하이픈 상관없이\n휴대폰번호 입력: ");
+			 	System.out.print("전화 번호를 입력해주세요"
+			 			+ "\n하이픈 상관없이"
+			 			+ "\n휴대폰번호 입력: ");
 			 do {	 
 				 phoneNum=scan.next();
 				 checker=input.checkPhoneNum(phoneNum);
@@ -74,7 +78,8 @@ public class TestMain {
 			////////////////////확인 필요////////////////////////////
 			checker=false;
 			
-			System.out.print("주소를 입력해주세요: ");
+//			System.out.print("주소를 입력해주세요: "); 수정전
+			System.out.print("도로명 주소와 동을 입력해주세요 : "); //후
 			do {
 				 
 				Address=scan.nextLine();
@@ -82,7 +87,7 @@ public class TestMain {
 				 
 				checker=input.checkAddress(Address);
 				if (!checker) {
-					 System.out.println("한글 주소 형식이 아닙니다.");
+					 System.out.println("잘못입력 하셨습니다.");
 				}
 			}while(!checker);
 			 
@@ -138,7 +143,7 @@ public class TestMain {
 			 scan.nextLine();
 			 
 			 //아이디,비번을 생성하기 위한 객체 생성
-			 Info info = input.allInput();
+			 Info info = input.allInput();	
 			 Member member = new Member();	//회원 객체 생성
 			 
 			 member.setInput(input);		//회원 객체에 개인정보 저장
@@ -165,7 +170,7 @@ public class TestMain {
 		if(login.login(arrMember)) flag_login=true;
 		
 //////////////////////////////텍스트 파일 출력(예정)//////////////////////////////////////
-		
+		//기현아 힘내
 		
 		scan.close();
 	}
