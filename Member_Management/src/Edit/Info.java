@@ -13,19 +13,25 @@ public class Info{
     private String phonenumber;
     private String email;
    
-//    public Info(String id, String pw, String birth, String phonenumber, String email) {
-//        this.id = id;
-//        this.pw = pw;
-//        this.birth = birth;
-//        this.phonenumber = phonenumber;
-//        this.email = email;
-//    }
     public Info(String birth, String phonenumber, String email) {
         this.birth = birth;
         this.phonenumber = phonenumber;
         this.email = email;
     }
     
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
 	public String checkId() {
         String eArr = new String(email);
         String[] idArr = eArr.split("@");
@@ -44,5 +50,4 @@ public class Info{
     	pw = new String(newPw);
         return pw;
     	}   
-  
 }
