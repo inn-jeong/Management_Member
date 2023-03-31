@@ -23,7 +23,7 @@ public class Login {
 		return id_index;
 	}
 	
-	public void login(Member[] arr) {
+	public boolean login(Member[] arr) {
 		String[] arrID = new String[arr.length];//ID들 모아놓은 배열
 		String[] arrPW = new String[arr.length];//PW 모아놓은 배열
 		wrongcnt = new int[arr.length];
@@ -52,7 +52,7 @@ public class Login {
 			//아이디가 있다면
 			if(findPW(arrPW,PW)) {//비밀번호가 맞았다면
 				System.out.println("로그인 성공!");
-				return;//메소드 종료
+				return true;//메소드 종료
 			}
 			//비밀번호가 틀렸다면
 			else{
@@ -66,6 +66,7 @@ public class Login {
 				wrongcnt[id_index]++;
 			}
 		}
+		return false;
 	}
 	
 	//아이디 목록에서 해당 아이디가 있는지 찾는 메소드

@@ -23,11 +23,18 @@ public class Member {
 		this.year = input.getYear();
 		this.email = input.getEmail();
 	}
+	
 ///////////////////선택사항 저장///////////////////////////
 	public void setInput(personalInfo choice) {
 		this.hobby = choice.getHobby();
 		this.homeNumber = choice.getHomeNumber();
 		this.smoking = choice.getSmoking();
+	}
+	
+///////////////////id pw 저장////////////////////////////
+	public void setInput(Info info) {
+		this.ID = ""; // 수정
+		this.PW = "";
 	}
 
 	

@@ -10,11 +10,12 @@ public class TestMain {
 		Scanner scan = new Scanner(System.in);
 		String name,phoneNum,Address,email,year;
 		String homeNumber, hobby, smoking;
-		int choice,a,num;
+		int choice,a,num,indexID;
 		System.out.print("입력할 인원수: ");
 		num= scan.nextInt();
 		Member[] arrMember = new Member[num]; //num크기의 객체배열 생성
 		boolean checker = false;
+		boolean flag_login = false;
 		int countet = num;
 		num=0;
 		do {
@@ -120,7 +121,6 @@ public class TestMain {
 			 checker=false;
 			 System.out.print("흡연 여부(핀다,안핀다): ");
 			 do {
-				 
 				  smoking = scan.nextLine();
 				 checker=input.checkName(smoking);
 				 if (!checker) {
@@ -161,7 +161,7 @@ public class TestMain {
 ////////////////////////////////로그인//////////////////////////////////
 		System.out.println("로그인을 시도합니다.");
 		Login login = new Login();
-		login.login(arrMember);
+		if(login.login(arrMember)) flag_login=true;
 		
 //////////////////////////////텍스트 파일 출력(예정)//////////////////////////////////////
 		
