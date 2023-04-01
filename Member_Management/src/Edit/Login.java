@@ -17,7 +17,6 @@ public class Login {
 	Scanner scan = new Scanner(System.in);
 	private int id_index = 0;	//입력된 아이디의 배열 index값
 	private int[] wrongcnt;		//아이디별 틀린 횟수를 카운트
-	//바꿔야 할 것 Test1
 	
 	public int getId_index() {
 		return id_index;
@@ -82,6 +81,19 @@ public class Login {
 			}
 		}
 		return flagID_OK;
+	}
+	
+	// 외부에서 아이디를 찾을 때 사용할 메소드
+	public static boolean findID(Member[] arr, String inputID, int index) {
+		boolean find = false;
+		
+		for(int i=0; i<index; i++) {
+			if(arr[i].getID().equals(inputID)) {
+				find = true;
+				break;
+			}
+		}
+		return  find;
 	}
 	
 	//입력된 비밀번호가 맞는지 확인하는 메소드

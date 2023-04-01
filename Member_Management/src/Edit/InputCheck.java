@@ -1,5 +1,5 @@
-package MM;
-
+package Edit;
+//package Edit로 수정했습니다.
 import java.util.regex.Pattern;
 
 public class InputCheck {
@@ -88,8 +88,10 @@ public class InputCheck {
 	}
 	
 	//모든 메소드들이 정상적으로 true를 리턴하면 info에 폰번호랑 생년월일 이메일을 넘겨줌
+	//순서 생년월일, 번호, 이메일 순서인데 잘못 입력되어 있어서 변경합니당.
 	public Info allInput() {
-				Info info = new Info(getEmail(),getPhoneNum(),getYear());	
+//				Info info = new Info(getEmail(),getPhoneNum(),getYear());	
+				Info info = new Info(getYear(),getPhoneNum(),getEmail());	
 			return info;
 			
 		}

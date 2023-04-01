@@ -33,8 +33,8 @@ public class Member {
 	
 ///////////////////id pw 저장////////////////////////////
 	public void setInput(Info info) {
-		this.ID = ""; // 수정
-		this.PW = "";
+		this.ID = info.getId();
+		this.PW = info.getPw();
 	}
 
 	
