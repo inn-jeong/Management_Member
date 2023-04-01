@@ -10,12 +10,14 @@ public class TestMain {
 		Scanner scan = new Scanner(System.in);
 		String name,phoneNum,Address,email,year;
 		String homeNumber, hobby, smoking;
-		int choice,a,num;
+		int choice,a,num,indexID;
 		System.out.print("입력할 인원수: ");
 		num= scan.nextInt();
 		Member[] arrMember = new Member[num]; //num크기의 객체배열 생성
 		boolean checker = false;
+		boolean flag_login = false;
 		int countet = num;
+		int counter = num;
 		num=0;
 		do {
 //////////////////////////////////이름 입력//////////////////////////////
@@ -30,7 +32,9 @@ public class TestMain {
 			} while (!checker);
 			
 ///////////////////////////////주민번호 입력//////////////////////////////
-			System.out.print("주민등록번호 첫번째 자리부터\n7번째 자리까지 입력 해주세요\n입력: ");
+			System.out.print("주민등록번호 첫번째 자리부터"
+					+ "\n7번째 자리까지 입력 해주세요"
+					+ "\n입력: ");
 			checker = false;
 				
 			 do {	 
@@ -43,7 +47,9 @@ public class TestMain {
 			 
 ///////////////////////////////전화번호 입력//////////////////////////////
 			 checker = false;
-			 	System.out.print("전화 번호를 입력해주세요\n하이픈 상관없이\n휴대폰번호 입력: ");
+			 	System.out.print("전화 번호를 입력해주세요"
+			 			+ "\n하이픈 상관없이"
+			 			+ "\n휴대폰번호 입력: ");
 			 do {	 
 				 phoneNum=scan.next();
 				 checker=input.checkPhoneNum(phoneNum);
@@ -71,8 +77,9 @@ public class TestMain {
 ///////////////////////////////주소 입력//////////////////////////////
 			////////////////////확인 필요////////////////////////////
 			checker=false;
-			System.out.println("으");
-			System.out.print("주소를 입력해주세요: ");
+			
+//			System.out.print("주소를 입력해주세요: "); 수정전
+			System.out.print("도로명 주소와 동을 입력해주세요 : "); //후
 			do {
 				 
 				Address=scan.nextLine();
@@ -80,7 +87,7 @@ public class TestMain {
 				 
 				checker=input.checkAddress(Address);
 				if (!checker) {
-					 System.out.println("한글 주소 형식이 아닙니다.");
+					 System.out.println("잘못입력 하셨습니다.");
 				}
 			}while(!checker);
 			 
@@ -120,7 +127,6 @@ public class TestMain {
 			 checker=false;
 			 System.out.print("흡연 여부(핀다,안핀다): ");
 			 do {
-				 
 				  smoking = scan.nextLine();
 				 checker=input.checkName(smoking);
 				 if (!checker) {
@@ -137,7 +143,7 @@ public class TestMain {
 			 scan.nextLine();
 			 
 			 //아이디,비번을 생성하기 위한 객체 생성
-			 Info info = new Info(input.getYear(),input.getPhoneNum(),input.getEmail()); 
+			 Info info = input.allInput();	
 			 Member member = new Member();	//회원 객체 생성
 			 
 			 member.setInput(input);		//회원 객체에 개인정보 저장
@@ -151,20 +157,20 @@ public class TestMain {
 			 //객체 배열에 생성된 객체 추가
 			 arrMember[num] = member;
 			 num++;
-			 if(num != countet) {
+			 if(num != counter) {
 				 System.out.println("\n"+(num+1)+"번째 회원정보 입력");
 				 
 			 }
-		} while (num!=countet);
+		} while (num!=counter);
 		System.out.println();
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////////로그인//////////////////////////////////
 		System.out.println("로그인을 시도합니다.");
 		Login login = new Login();
-		login.login(arrMember);
+		if(login.login(arrMember)) flag_login=true;
 		
 //////////////////////////////텍스트 파일 출력(예정)//////////////////////////////////////
-		
+		//기현아 힘내
 		
 		scan.close();
 	}

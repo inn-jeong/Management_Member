@@ -1,7 +1,5 @@
-package Edit;
-//깰꼼
-//메소드 위에 주석 달아주는 것 좋았습니다.
-//checkAddress 조건이 너무 까다롭습니다. 
+package MM;
+
 import java.util.regex.Pattern;
 
 public class InputCheck {
@@ -11,20 +9,19 @@ public class InputCheck {
 	private String phoneNum;
 	private String year;
 	private String email;
-	private int counter=1;
 	private static final String[] DOMAINS = {"@gamil.com","@naver.com","@daum.net"};
 	private static final String KOREAN_PATTERN= "[가-힣]*$";
 	private static final String EMAIL_PATTERN= "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
 	private static final String KOREAN_ADDRESS_PATTERN =  "(([가-힣A-Za-z·\\d~\\-\\.]{2,}(로|길).[\\d]+)" +
             "|([가-힣A-Za-z·\\d~\\-\\.]+(읍|동|번지)\\s)[\\d]+)" +
             "|([가-힣A-Za-z]+(구)+\\s*[가-힣A-Za-z]+(동))"+
-            "|([가-힣a-zA-Z\\d]+(아파트|빌라|빌딩|마을))";
+            "|([가-힣a-zA-Z\\d]+(아파트|빌라|빌딩|마을))";//볼때 마다 어지럽네 이건
 	//	일반적인 한국 이름 형식이 아니면 false 
 	public boolean checkName(String name) {
 		name = name.trim();
 		if(Pattern.matches(KOREAN_PATTERN, name)) {
 			setName(name);
-			setCounter(counter);
+			
 			return true;
 			}
 		return false;	
@@ -34,7 +31,7 @@ public class InputCheck {
 	public boolean checkAddress(String inputAddress) {
 			if(inputAddress.matches(KOREAN_ADDRESS_PATTERN)){
 				setAddres(inputAddress);
-				setCounter(counter);
+				
 				return true;
 				}
 		return false;
@@ -54,7 +51,7 @@ public class InputCheck {
 		if(num<9912315) {
 			if (checker<5) {
 				setYear(inputBirthYear.substring(0,7));
-				setCounter(counter);
+				
 				setGender(gender);
 				return true;
 			}
@@ -70,7 +67,7 @@ public class InputCheck {
 		if (inputPhoneNum.substring(0, 3).equals("010")) {
 			if (inputPhoneNum.length()==11) {
 				setPhoneNum(inputPhoneNum);
-				setCounter(counter);
+				
 				return true;				
 			}
 		}
@@ -82,7 +79,7 @@ public class InputCheck {
 		if (Pattern.matches(EMAIL_PATTERN, email+DOMAINS[select-1])) {
 			
 				setEmail(email += DOMAINS[select-1]);
-				setCounter(counter);
+				
 				return true;
 			
 		}		
@@ -90,14 +87,12 @@ public class InputCheck {
 		
 	}
 	
-	//모든 메소드들이 정상적으로 true를 리턴하면 Output에 폰번호랑 생년월일 이메일을 넘겨줌
-	public void allInput() {
-		if (counter==6) {
-			Info info = new Info(getYear(),getPhoneNum(),getEmail());
+	//모든 메소드들이 정상적으로 true를 리턴하면 info에 폰번호랑 생년월일 이메일을 넘겨줌
+	public Info allInput() {
+				Info info = new Info(getEmail(),getPhoneNum(),getYear());	
+			return info;
 			
 		}
-	}
-	
 	public String getName() {
 		return name;
 	}
@@ -128,15 +123,6 @@ public class InputCheck {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	public int getCounter() {
-		return counter;
-	}
-	
-	public void setCounter(int counter) {
-		this.counter += counter;
-	}
-
 	
 	public String getEmail() {
 		return email;

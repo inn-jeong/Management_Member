@@ -1,6 +1,7 @@
 package Edit;
 
 import java.util.Scanner;
+
 //////test용////////
 //class Test1{
 //	String ID = "";
@@ -16,12 +17,13 @@ public class Login {
 	Scanner scan = new Scanner(System.in);
 	private int id_index = 0;	//입력된 아이디의 배열 index값
 	private int[] wrongcnt;		//아이디별 틀린 횟수를 카운트
+	//바꿔야 할 것 Test1
 	
 	public int getId_index() {
 		return id_index;
 	}
 	
-	public void login(Member[] arr) {
+	public boolean login(Member[] arr) {
 		String[] arrID = new String[arr.length];//ID들 모아놓은 배열
 		String[] arrPW = new String[arr.length];//PW 모아놓은 배열
 		wrongcnt = new int[arr.length];
@@ -33,6 +35,8 @@ public class Login {
 		for(int i=0; i<arr.length; i++) {
 			arrPW[i] = arr[i].getPW().toString();
 		}
+		System.out.println("로그인을 시도합니다.");
+		
 		while(true) {
 			System.out.print("ID: ");
 			String ID = scan.nextLine();//ID 입력받음
@@ -48,7 +52,7 @@ public class Login {
 			//아이디가 있다면
 			if(findPW(arrPW,PW)) {//비밀번호가 맞았다면
 				System.out.println("로그인 성공!");
-				return;//메소드 종료
+				return true;//메소드 종료
 			}
 			//비밀번호가 틀렸다면
 			else{
@@ -62,6 +66,7 @@ public class Login {
 				wrongcnt[id_index]++;
 			}
 		}
+		return false;
 	}
 	
 	//아이디 목록에서 해당 아이디가 있는지 찾는 메소드
@@ -76,7 +81,6 @@ public class Login {
 				break;
 			}
 		}
-		
 		return flagID_OK;
 	}
 	
@@ -88,8 +92,6 @@ public class Login {
 		if(arrPW[id_index].equals(PW)) {
 			flagPW_OK = true;
 		}
-		
 		return flagPW_OK; 
 	}
-	
 }
