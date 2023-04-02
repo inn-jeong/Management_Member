@@ -12,10 +12,14 @@ public class InputCheck {
 	private static final String[] DOMAINS = {"@gamil.com","@naver.com","@daum.net"};
 	private static final String KOREAN_PATTERN= "[가-힣]*$";
 	private static final String EMAIL_PATTERN= "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
-	private static final String KOREAN_ADDRESS_PATTERN =  "(([가-힣A-Za-z·\\d~\\-\\.]{2,}(로|길).[\\d]+)" +
-            "|([가-힣A-Za-z·\\d~\\-\\.]+(읍|동|번지)\\s)[\\d]+)" +
-            "|([가-힣A-Za-z]+(구)+\\s*[가-힣A-Za-z]+(동))"+
-            "|([가-힣a-zA-Z\\d]+(아파트|빌라|빌딩|마을))";//볼때 마다 어지럽네 이건
+	//수정 경상남도,전라남도등 도를 제외한 주소 패턴 
+	private static final String KOREAN_ADDRESS_PATTERN ="^.*[시군구]\\s.*[동읍면리]\\s"//시,군,구 다음으로 동,읍,면,리가 와야함
+			+ ".*\\d{1,5}-\\d{0,3}(|로|길)\\s.*"//은 도로명주소로 로/길이 나와야함
+			+ "\\d{1,5}(번지)?\\s"//번지가 나와야함(건물주소)
+			+ ".*\\d{1,3}(동|층)?\\s.*$";//동이나 층이 포함 되어 있는지 확인
+
+	
+	
 	//	일반적인 한국 이름 형식이 아니면 false 
 	public boolean checkName(String name) {
 		name = name.trim();
@@ -26,6 +30,15 @@ public class InputCheck {
 			}
 		return false;	
 	}
+	// 한글 형식의 문자열이 아니면 false(진영 추가)
+	public static boolean checkKor(String str) {
+		str = str.trim();
+		if(Pattern.matches(KOREAN_PATTERN, str)) {
+			return true;
+			}
+		return false;	
+	}
+	
 	//주소 확인 주소에 영어가 포함 되어있으면 false 리턴함 
 	//값에 무조건 숫자가 포함 되어 있어야함
 	public boolean checkAddress(String inputAddress) {
