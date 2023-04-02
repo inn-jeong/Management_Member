@@ -4,7 +4,7 @@ package Edit;
 import java.util.Scanner;
 
 public class TestMain {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		InputCheck input = new InputCheck();
 		personalInfo perInfo = new personalInfo(); 
 		Scanner scan = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class TestMain {
 					System.out.println("한글만 입력해주세요.");
 				}
 			} while (!checker);
-
+			System.out.println("##==>이름"+name);
 ///////////////////////////////주민번호 입력//////////////////////////////
 			checker = false;
 
@@ -47,11 +47,10 @@ public class TestMain {
 
 ///////////////////////////////전화번호 입력//////////////////////////////
 			checker = false;
-			System.out.print("전화 번호를 입력해주세요"
-					+ "\n하이픈 상관없이"
-					+ "\n휴대폰번호 입력: ");
 			do {
-				System.out.print("전화 번호 입력: ");
+				System.out.print("전화 번호를 입력해주세요"
+						+ "\n하이픈 상관없이"
+						+ "\n휴대폰번호 입력: ");
 				phoneNum=scan.next();
 				checker=input.checkPhoneNum(phoneNum);
 				if (!checker) {
@@ -118,27 +117,27 @@ public class TestMain {
 /////////////////////////////취미 입력//////////////////////////////
 			checker=false;
 			System.out.print("취미를 입력해주세요: ");
-			do {
+//			do {
 
 				hobby=scan.nextLine();
 //				 scan.nextLine();
 				//취미는 일반적으로 한글로 작성하므로 임시로 checkName 메소드 사용
-				checker=input.checkName(hobby);
-				if (!checker) {
-					System.out.println("잘못 입력하셨습니다.");
-				}
-			}while(!checker);
+//				checker=input.checkName(hobby);
+//				if (!checker) {
+//					System.out.println("잘못 입력하셨습니다.");
+//				}
+//			}while(!checker);
 			perInfo.setHobby(hobby);
 /////////////////////////////흡연여부 입력//////////////////////////////
 			checker=false;
 			System.out.print("흡연 여부(핀다,안핀다): ");
-			do {
+//			do {
 				smoking = scan.nextLine();
-				checker=input.checkName(smoking);
-				if (!checker) {
-					System.out.println("잘못 입력하셨습니다.");
-				}
-			}while(!checker);
+//				checker=input.checkName(smoking);
+//				if (!checker) {
+//					System.out.println("잘못 입력하셨습니다.");
+//				}
+//			}while(!checker);
 			perInfo.setSmoking(smoking);
 
 
@@ -152,9 +151,10 @@ public class TestMain {
 			//아이디,비번을 생성하기 위한 객체 생성
 			Info info = input.allInput();	
 			Member member = new Member();	//회원 객체 생성
-
+			System.out.println("##==>이름"+input.getName());
 			member.setInput(input);		//회원 객체에 개인정보 저장
 			member.setInput(perInfo);		//회원 객체에 선택정보 저장
+			System.out.println("##==>이름"+member.getName());
 			member.setID(info.checkId());	//회원 객체에 id 저장
 			member.setPW(info.checkPw());	//회원 객체에 pw 저장
 
@@ -173,7 +173,7 @@ public class TestMain {
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////////로그인//////////////////////////////////
 		Login login = new Login();
-		Member memberOutput; //출력할 객체(output 과정에서 사용할 예정)
+		Member memberOutput = new Member(); //출력할 객체(output 과정에서 사용할 예정)
 		if(login.login(arrMember)) {
 			flag_login=true; //로그인 성공 유무
 			memberOutput = arrMember[login.getId_index()]; //츌력할 객체 지정
@@ -182,7 +182,11 @@ public class TestMain {
 
 //////////////////////////////텍스트 파일 출력(예정)//////////////////////////////////////
 		//기현아 힘내
-
+		if(flag_login) {
+			Output output = new Output(memberOutput);
+			output.writeToFile("D:\\dev\\output.txt");
+		}
 		scan.close();
+	
 	}
 }
