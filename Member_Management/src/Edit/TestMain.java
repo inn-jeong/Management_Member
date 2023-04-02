@@ -5,12 +5,11 @@ import java.util.Scanner;
 
 public class TestMain {
 	public static void main(String[] args) {
+		String name,phoneNum,Address,email,year,homeNumber, hobby, smoking;
+		int choice,a,num,indexID;
 		InputCheck input = new InputCheck();
 		personalInfo perInfo = new personalInfo(); 
 		Scanner scan = new Scanner(System.in);
-		String name,phoneNum,Address,email,year;
-		String homeNumber, hobby, smoking;
-		int choice,a,num,indexID;
 		System.out.print("입력할 인원수: ");
 		num= scan.nextInt();
 		Member[] arrMember = new Member[num]; //num크기의 객체배열 생성
