@@ -30,7 +30,6 @@ public class TestMain {
 					System.out.println("한글만 입력해주세요.");
 				}
 			} while (!checker);
-			System.out.println("##==>이름"+name);
 ///////////////////////////////주민번호 입력//////////////////////////////
 			checker = false;
 
@@ -151,10 +150,8 @@ public class TestMain {
 			//아이디,비번을 생성하기 위한 객체 생성
 			Info info = input.allInput();	
 			Member member = new Member();	//회원 객체 생성
-			System.out.println("##==>이름"+input.getName());
 			member.setInput(input);		//회원 객체에 개인정보 저장
 			member.setInput(perInfo);		//회원 객체에 선택정보 저장
-			System.out.println("##==>이름"+member.getName());
 			member.setID(info.checkId());	//회원 객체에 id 저장
 			member.setPW(info.checkPw());	//회원 객체에 pw 저장
 

@@ -1,9 +1,6 @@
 package Edit;
 
 import java.io.FileWriter;
-//import java.io.IOException;
-import java.io.Writer;
-//import java.lang.reflect.Member;
 
 public class Output {
 	private String name;
@@ -32,24 +29,6 @@ public class Output {
 		this.PW = member.getPW();
 	}
 	public void writeToFile(String output) throws Exception {
-//           try {
-//               FileWriter writer = new FileWriter(output);
-//               writer.write("Name: " + name + "\n");
-//               writer.write("Address: " + address + "\n");
-//               writer.write("Gender: " + gender + "\n");
-//               writer.write("Phone Number: " + phoneNumber + "\n");
-//               writer.write("Year: " + year + "\n");
-//               writer.write("Email: " + email + "\n");
-//               writer.write("Hobby: " + hobby + "\n");
-//               writer.write("Home Number: " + homeNumber + "\n");
-//               writer.write("Smoking: " + smoking + "\n");
-//               writer.write("ID: " + ID + "\n");
-//               writer.write("PW: " + PW + "\n");
-//               writer.close();
-//               System.out.println("Output saved to file: " + output);
-//           } catch (IOException e) {
-//               System.out.println("Error writing to file: " + e.getMessage());
-//           }
 		FileWriter writer = new FileWriter(output);
 		writer.write("Name: " + name + "\n");
 		writer.write("Address: " + address + "\n");
