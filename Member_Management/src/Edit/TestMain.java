@@ -72,6 +72,10 @@ public class TestMain {
 				if (!checker) {
 					System.out.println("영어와 숫자외 문자가 포함이 되어 있습니다.");
 				}
+				if(Login.findID(arrMember, email, num)) {
+					System.out.println("중복된 아이디가 있습니다. 다시 입력하세요.");
+					checker = false;
+				}
 			}while(!checker);
 
 			///////////////////////////////주소 입력//////////////////////////////
