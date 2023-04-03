@@ -33,3 +33,5 @@ ex) 진영(23.03.30) Login.java - 클래스 Test1 추가, 메소드checkID 수�
 진영(23.04.02) TestMain.java - output 메소드를 이용한 txt파일에 정보 출력 구현
 
 기현(23.04.02) Output.java - 개인정보 txt파일로 출력하는 기능 구현
+
+규하(23.04.03) InputCheck.java - 주소 패턴을 간단하게 변경
