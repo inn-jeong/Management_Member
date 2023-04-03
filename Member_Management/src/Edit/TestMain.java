@@ -1,11 +1,13 @@
 package Edit;
 
 //import java.awt.Checkbox;
+
 import java.util.Scanner;
 
 public class TestMain {
+
 	public static void main(String[] args) throws Exception {
-		String name,phoneNum,Address,email,year,homeNumber, hobby, smoking;
+		String name,phoneNum,address,email,year,homeNumber, hobby, smoking;
 		int choice,num;
 		InputCheck input = new InputCheck();
 		personalInfo perInfo = new personalInfo(); 
@@ -76,15 +78,16 @@ public class TestMain {
 			////////////////////확인 필요////////////////////////////
 			checker=false;
 
-			System.out.print("도로명 주소를 입력해주세요"); 
 			do {
-
-				Address=scan.nextLine();
-				scan.nextLine();
-
-				checker=input.checkAddress(Address);
+				
+				System.out.println("도로명 주소를 입력해주세요"); 
+				
+				address=scan.next();
+				address+=scan.next();
+				
+				checker=input.checkAddress(address);
 				if (!checker) {
-					System.out.println("잘못입력 하셨습니다.");
+					System.out.print("잘못입력 하셨습니다.");
 				}
 			}while(!checker);
 
@@ -179,4 +182,5 @@ public class TestMain {
 		System.out.println("프로그램을 종료합니다.");
 		scan.close();
 	}
+
 }
