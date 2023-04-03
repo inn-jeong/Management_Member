@@ -13,6 +13,7 @@ public class InputCheck {
 	private static final String KOREAN_PATTERN= "[가-힣]*$";
 	private static final String EMAIL_PATTERN= "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
 	//수정 경상남도,전라남도등 도를 제외한 주소 패턴 
+	//입력 예시: 서울시 강남구 역삼동 123-456번지 or 김해시 가락로123 123동 123호
 	private static final String KOREAN_ADDRESS_PATTERN ="^.*[시군구]\\s.*[동읍면리]\\s"//시,군,구 다음으로 동,읍,면,리가 와야함
 			+ ".*\\d{1,5}-\\d{0,3}(|로|길)\\s.*"//은 도로명주소로 로/길이 나와야함
 			+ "\\d{1,5}(번지)?\\s"//번지가 나와야함(건물주소)

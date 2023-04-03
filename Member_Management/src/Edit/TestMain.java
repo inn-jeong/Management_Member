@@ -76,17 +76,17 @@ public class TestMain {
 			////////////////////확인 필요////////////////////////////
 			checker=false;
 
-			System.out.print("도로명 주소를 입력해주세요"); 
-			do {
-
-				Address=scan.nextLine();
-				scan.nextLine();
-
-				checker=input.checkAddress(Address);
-				if (!checker) {
-					System.out.println("잘못입력 하셨습니다.");
-				}
-			}while(!checker);
+//			System.out.print("도로명 주소를 입력해주세요"); 
+//			do {
+//
+//				Address=scan.nextLine();
+//				scan.nextLine();
+//
+//				checker=input.checkAddress(Address);
+//				if (!checker) {
+//					System.out.println("잘못입력 하셨습니다.");
+//				}
+//			}while(!checker);
 
 			///////////////////////////집 전화번호 입력//////////////////////////////
 			checker=false;
@@ -163,7 +163,6 @@ public class TestMain {
 		System.out.println();
 		/////////////////////////////////////////////////////////////////////
 		////////////////////////////////로그인//////////////////////////////////
-		System.out.println("로그인을 시도합니다.");
 		Member outputmember = new Member();
 		Login login = new Login();
 		if(login.login(arrMember)) {
@@ -175,7 +174,7 @@ public class TestMain {
 		//기현아 힘내
 		if(flag_login) {
 			Output output = new Output(outputmember);
-			output.writeToFile("D:\\dev\\output.txt");
+			output.writeToFile("D:\\dev\\");
 		}
 		System.out.println("프로그램을 종료합니다.");
 		scan.close();
