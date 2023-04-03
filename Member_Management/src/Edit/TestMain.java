@@ -76,17 +76,17 @@ public class TestMain {
 			////////////////////확인 필요////////////////////////////
 			checker=false;
 
-//			System.out.print("도로명 주소를 입력해주세요"); 
-//			do {
-//
-//				Address=scan.nextLine();
-//				scan.nextLine();
-//
-//				checker=input.checkAddress(Address);
-//				if (!checker) {
-//					System.out.println("잘못입력 하셨습니다.");
-//				}
-//			}while(!checker);
+			System.out.print("도로명 주소를 입력해주세요"); 
+			do {
+
+				Address=scan.nextLine();
+				scan.nextLine();
+
+				checker=input.checkAddress(Address);
+				if (!checker) {
+					System.out.println("잘못입력 하셨습니다.");
+				}
+			}while(!checker);
 
 			///////////////////////////집 전화번호 입력//////////////////////////////
 			checker=false;
