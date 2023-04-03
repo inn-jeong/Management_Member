@@ -123,6 +123,7 @@ public class TestMain {
 				}
 			}while(!checker);
 			perInfo.setHobby(hobby);
+			System.out.println(hobby);
 			/////////////////////////////흡연여부 입력//////////////////////////////
 			checker=false;
 			System.out.print("흡연 여부(핀다,안핀다): ");
@@ -177,7 +178,7 @@ public class TestMain {
 		//기현아 힘내
 		if(flag_login) {
 			Output output = new Output(outputmember);
-			output.writeToFile("D:\\dev\\");
+			output.writeToFile("D:\\dev");
 		}
 		System.out.println("프로그램을 종료합니다.");
 		scan.close();

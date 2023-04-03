@@ -12,13 +12,16 @@ class personalInfo{
 	private String smoking;
 
 	public void setHobby(String hobby) {
-		this.hobby = hobby;
+		if(hobby.equals("")) this.hobby = "공란";
+		else this.hobby = hobby;
 	}
 	public void setHomeNumber(String homeNumber) {
-		this.homeNumber = homeNumber;
+		if(homeNumber.equals("")) this.homeNumber = "공란";
+		else this.homeNumber = homeNumber;
 	}
 	public void setSmoking(String smoking) {
-		this.smoking = smoking;
+		if(smoking.equals("")) this.smoking = "공란";
+		else this.smoking = smoking;
 	}
 	public String getHobby() {
 		return hobby;
