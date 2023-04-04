@@ -84,7 +84,6 @@ public class Login {
 	}
 	
 	// 외부에서 아이디를 찾을 때 사용할 메소드
-	// 객체 생성 없이 사용할 수 있도록 만들기 위해 static 선언
 	public static boolean findID(Member[] arr, String inputID, int index) {
 		boolean find = false;
 		
