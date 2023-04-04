@@ -29,7 +29,7 @@ public class Output {
 		this.PW = member.getPW();
 	}
 	public void writeToFile(String output) throws Exception {
-		FileWriter writer = new FileWriter(output);
+		FileWriter writer = new FileWriter(output+"\\"+name+".txt");
 		writer.write("Name: " + name + "\n");
 		writer.write("Address: " + address + "\n");
 		writer.write("Gender: " + gender + "\n");
@@ -42,7 +42,7 @@ public class Output {
 		writer.write("ID: " + ID + "\n");
 		writer.write("PW: " + PW + "\n");
 		writer.close();
-		System.out.println("Output saved to file: " + output);
+		System.out.println("Output saved to file: " + output+"\\"+name+".txt");
 	}
 
 }

@@ -1,11 +1,13 @@
 package Edit;
 
 //import java.awt.Checkbox;
+
 import java.util.Scanner;
 
 public class TestMain {
+
 	public static void main(String[] args) throws Exception {
-		String name,phoneNum,Address,email,year,homeNumber, hobby, smoking;
+		String name,phoneNum,address,email,year,homeNumber, hobby, smoking;
 		int choice,num;
 		InputCheck input = new InputCheck();
 		personalInfo perInfo = new personalInfo(); 
@@ -70,21 +72,26 @@ public class TestMain {
 				if (!checker) {
 					System.out.println("영어와 숫자외 문자가 포함이 되어 있습니다.");
 				}
+				if(Login.findID(arrMember, email, num)) {
+					System.out.println("중복된 아이디가 있습니다. 다시 입력하세요.");
+					checker = false;
+				}
 			}while(!checker);
 
 			///////////////////////////////주소 입력//////////////////////////////
 			////////////////////확인 필요////////////////////////////
 			checker=false;
 
-			System.out.print("도로명 주소를 입력해주세요"); 
 			do {
-
-				Address=scan.nextLine();
-				scan.nextLine();
-
-				checker=input.checkAddress(Address);
+				
+				System.out.println("도로명 주소를 입력해주세요"); 
+				
+				address=scan.next();
+				address+=scan.next();
+				
+				checker=input.checkAddress(address);
 				if (!checker) {
-					System.out.println("잘못입력 하셨습니다.");
+					System.out.print("잘못입력 하셨습니다.");
 				}
 			}while(!checker);
 
@@ -120,6 +127,7 @@ public class TestMain {
 				}
 			}while(!checker);
 			perInfo.setHobby(hobby);
+			System.out.println(hobby);
 			/////////////////////////////흡연여부 입력//////////////////////////////
 			checker=false;
 			System.out.print("흡연 여부(핀다,안핀다): ");
@@ -163,7 +171,6 @@ public class TestMain {
 		System.out.println();
 		/////////////////////////////////////////////////////////////////////
 		////////////////////////////////로그인//////////////////////////////////
-		System.out.println("로그인을 시도합니다.");
 		Member outputmember = new Member();
 		Login login = new Login();
 		if(login.login(arrMember)) {
@@ -175,9 +182,10 @@ public class TestMain {
 		//기현아 힘내
 		if(flag_login) {
 			Output output = new Output(outputmember);
-			output.writeToFile("D:\\dev\\output.txt");
+			output.writeToFile("D:\\dev");
 		}
 		System.out.println("프로그램을 종료합니다.");
 		scan.close();
 	}
+
 }
