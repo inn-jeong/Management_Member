@@ -2,13 +2,7 @@ package Edit;
 
 import java.util.Scanner;
 
-//////test용////////
-//class Test1{
-//	String ID = "";
-//	String PW = "";
-///////////////////
-//}
-//로그인 클래스
+//Login 클래스
 //입력: 	아이디와 비밀번호를 입력받는다.
 //출력: 	아이디가 없으면 아이디 없음,
 //		아이디가 있는데 비밀번호가 틀렸으면 비밀번호 틀렸음
@@ -17,10 +11,6 @@ public class Login {
 	Scanner scan = new Scanner(System.in);
 	private int id_index = 0;	//입력된 아이디의 배열 index값
 	private int[] wrongcnt;		//아이디별 틀린 횟수를 카운트
-	
-	public int getId_index() {
-		return id_index;
-	}
 	
 	public boolean login(Member[] arr) {
 		String[] arrID = new String[arr.length];//ID들 모아놓은 배열
@@ -83,7 +73,7 @@ public class Login {
 		return flagID_OK;
 	}
 	
-	// 외부에서 아이디를 찾을 때 사용할 메소드
+	// 객체를 생성하지 않고 메소드만 필요할 경우 사용할 수 있는 메소드
 	public static boolean findID(Member[] arr, String inputID, int index) {
 		boolean find = false;
 		
@@ -105,5 +95,9 @@ public class Login {
 			flagPW_OK = true;
 		}
 		return flagPW_OK; 
+	}
+	//id_index 필드값을 가져오기 위한 getter 메소드
+	public int getId_index() {
+		return id_index;
 	}
 }
