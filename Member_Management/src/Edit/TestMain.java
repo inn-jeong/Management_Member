@@ -116,28 +116,27 @@ public class TestMain {
 			/////////////////////////////취미 입력//////////////////////////////
 			checker=false;
 			System.out.print("취미를 입력해주세요: ");
-			do {
+//			do {
 
 				hobby=scan.nextLine();
 				//				 scan.nextLine();
 				//취미는 일반적으로 한글로 작성하므로 임시로 checkName 메소드 사용
-				checker=InputCheck.checkKor(hobby);
-				if (!checker) {
-					System.out.println("잘못 입력하셨습니다.");
-				}
-			}while(!checker);
+//				checker=InputCheck.checkKor(hobby);
+//				if (!checker) {
+//					System.out.println("잘못 입력하셨습니다.");
+//				}
+//			}while(!checker);
 			perInfo.setHobby(hobby);
-			System.out.println(hobby);
 			/////////////////////////////흡연여부 입력//////////////////////////////
 			checker=false;
 			System.out.print("흡연 여부(핀다,안핀다): ");
-			do {
+//			do {
 				smoking = scan.nextLine();
-				checker=InputCheck.checkKor(smoking);
-				if (!checker) {
-					System.out.println("잘못 입력하셨습니다.");
-				}
-			}while(!checker);
+//				checker=InputCheck.checkKor(smoking);
+//				if (!checker) {
+//					System.out.println("잘못 입력하셨습니다.");
+//				}
+//			}while(!checker);
 			perInfo.setSmoking(smoking);
 
 
